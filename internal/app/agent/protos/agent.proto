@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package protos;
+
+message AgentResponse {
+	int32 code = 1;
+	string msg = 2;
+	string data = 3;
+}
+
+message AlertRequest {
+	string config = 1;
+	string tp = 2;
+	string alertId = 3;
+	int32 time = 4;
+	string comments = 5;
+}
+
+message CronCommandRequest {
+	string cronName = 1;
+	string cronTime = 2;
+	string addUser = 3;
+	string regionName = 4;
+	string cronContent = 5;
+	string bindFlag = 6;
+	int32 operatorType = 7; //1为插入数据;2为删除数据;3为修改数据
+	int32 no = 8;
+	int32 startFlag = 9; //是否启用定时任务
+}
+
+service IAgentService {
+	rpc EscalationConfig (AlertRequest) returns (AgentResponse);
+	rpc AggregationConfig (AlertRequest) returns (AgentResponse);
+	rpc SilenceConfig (AlertRequest) returns (AgentResponse);
+	rpc NotifyConfig (AlertRequest) returns (AgentResponse);
+	rpc AlertClaim (AlertRequest) returns (AgentResponse);
+
+	rpc CrontaskSync(CronCommandRequest) returns (AgentResponse);
+}

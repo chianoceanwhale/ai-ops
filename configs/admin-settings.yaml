@@ -1,0 +1,30 @@
+settings:
+  application:
+    domain: localhost
+    host: 0.0.0.0
+    ishttps: false
+    mode: dev
+    name: ai-ops
+    port: "8000"
+    readtimeout: 1
+    writertimeout: 2
+  database:
+    dbtype: mysql
+    host: 10.10.26.14
+    name: iot-ops2
+    password: lumi
+    port: 3306
+    username: root
+  git:
+    access-token: PdsYQNtZbykF
+    base-url: http://github.com
+  grafana: https://grafana.com
+  jenkins:
+    password: Pasw32s
+    url: http://10.0.0.1:8000
+    username: admin
+  log:
+    dir: D:\tmp\
+    operdb: false
+  prometheus:
+    url: http://promethues.com
